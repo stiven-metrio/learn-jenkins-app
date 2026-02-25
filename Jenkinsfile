@@ -20,5 +20,14 @@ pipeline {
                 '''
             }
         }
+        
+        stage('Test') {
+            steps {
+                sh '''
+                    [ -f src/index.js ] && echo "Exists"
+                    npm test
+                '''
+            }
+        }
     }
 }
